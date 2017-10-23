@@ -21,6 +21,8 @@ const (
 	ChannelLibName = "channel"
 	// CoroutineLibName is the name of the coroutine Library.
 	CoroutineLibName = "coroutine"
+	// BitLibName is the name of the bit Library.
+	BitLibName = "bit"
 )
 
 type luaLib struct {
@@ -39,6 +41,7 @@ var luaLibs = []luaLib{
 	luaLib{DebugLibName, OpenDebug},
 	luaLib{ChannelLibName, OpenChannel},
 	luaLib{CoroutineLibName, OpenCoroutine},
+	luaLib{BitLibName, OpenBit},
 }
 
 // OpenLibs loads the built-in libraries. It is equivalent to running OpenLoad,

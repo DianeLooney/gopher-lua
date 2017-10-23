@@ -7,7 +7,6 @@ package lua
 import (
 	"context"
 	"fmt"
-	"github.com/yuin/gopher-lua/parse"
 	"io"
 	"math"
 	"os"
@@ -15,6 +14,8 @@ import (
 	"strings"
 	"sync/atomic"
 	"time"
+
+	"github.com/dianelooney/gopher-lua/parse"
 )
 
 const MultRet = -1
@@ -232,6 +233,9 @@ func (rg *registry) Top() int {
 }
 
 func (rg *registry) Push(v LValue) {
+	for len(rg.array) <= rg.top {
+		rg.array = append(rg.array, LNil)
+	}
 	rg.array[rg.top] = v
 	rg.top++
 }
