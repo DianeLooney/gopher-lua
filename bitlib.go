@@ -14,7 +14,7 @@ var bitFuncs = map[string]LGFunction{
 }
 
 func bitBor(L *LState) int {
-	L.Push(LNumber(int32(L.CheckNumber(1)) & int32(L.CheckNumber(2))))
+	L.Push(LNumber(int32(L.CheckNumber(1)) | int32(L.CheckNumber(2))))
 	return 1
 }
 func bitAnd(L *LState) int {
